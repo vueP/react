@@ -1,0 +1,57 @@
+@font-face {font-family: "yofont";
+  src: url('/images/fonts/iconfontlyx.eot?t=1484211166464'); /* IE9*/
+  src: url('/images/fonts/iconfontlyx.eot?t=1484211166464#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('/images/fonts/iconfontlyx.woff?t=1484211166464') format('woff'), /* chrome, firefox */
+  url('/images/fonts/iconfontlyx.ttf?t=1484211166464') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('/images/fonts/iconfontlyx.svg?t=1484211166464#iconfont') format('svg'); /* iOS 4.1- */
+}
+ #app{
+	height:100%;
+	#cute{
+		@include flexbox();
+		@include flex-direction(column);
+		height:100%;
+		#footer{
+			height:0.54rem;
+			background:#efefef;
+			ul{
+			  @include flexbox();
+			  height:100%;
+			  @include align-items(center);
+			  @include justify-content(center);
+			  li{
+			  	@include flexbox();
+			  	@include flex();
+			  	@include flex-direction(column);
+			  	@include align-items(center);
+			  	i,b{
+			  	  display:block;	  
+			  	}
+			  	i{
+			  		font-size: 0.24rem;
+			  		color:#929299;
+			  	}
+			  	b{
+			  		font-size:0.11rem;
+			  		color:#636363;
+			  	}
+			  	&.active i{
+			  		color:#f14d55;
+			  	}
+			  }
+			  li:nth-child(3){
+			  	span{
+			  		display:block;
+			  		width:0.48rem;
+			  		height:0.48rem;
+			  		img{
+			  			width:100%;
+			  			height:100%;
+			  		}
+			  	}
+			  }
+				
+			}
+		}
+    }	
+}    	

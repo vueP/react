@@ -1,0 +1,13 @@
+require("./styles/module/index.scss");
+var LayOut = require("./scripts/layout");
+var Header=require("./scripts/header");
+var Footer=require("./scripts/footer");
+var Wrapper=require("./scripts/wrapper");
+var Banner=require("./scripts/banner");
+var PicShow=require("./scripts/picshow");
+ReactDOM.render(<LayOut />,document.getElementById("app"));
+ReactDOM.render(<Footer />,document.getElementById("footer"));
+ReactDOM.render(<Wrapper/>,document.getElementById("wrapper"));
+ReactDOM.render(<Header />,document.getElementById("header"));
+ReactDOM.render(<Banner />,document.getElementById("banner"));
+ReactDOM.render(<PicShow />,document.getElementById("picshow"));
