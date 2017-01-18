@@ -26,7 +26,7 @@ var List = React.createClass({
 		)
 	},
 	componentDidMount : function(){
-		Swiper = new Swiper('.swiper-container',{
+		 Swiper = new Swiper('#swiper',{
 			scrollbar:'.swiper-scrollbar' ,
 			scrollbarHide:false,
 	  	}); 

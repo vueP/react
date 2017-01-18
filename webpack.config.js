@@ -1,3 +1,4 @@
+
 var webpack = require('webpack');
 var ET = require('extract-text-webpack-plugin');
 
@@ -10,34 +11,49 @@ module.exports = {
 	devtool:'source-map',
 	module:{
 		loaders:[
-			{
+		{
+           test:/\.css$/,
+           loader:'style-loader!css-loader',
+         },
+         {
 				test:/\.js$/,
 				exclude: /node_modules/,
 				loader:'babel-loader',
 				query:{
 					presets:['es2015','react']
 				}
-			},
-			{
-				test:/\.scss$/,
-				loader:ET.extract('style-loader','css-loader?modules&localIdentName=[hash:base64:5]&-url!sass')
-			}
+		},
+         {
+           test:/\.scss$/,
+           loader:ET.extract('style-loader','css-loader!sass')
+         },
+         {
+          test:/\.string$/,
+          loader:'string'
+         },
+         {
+          test:/\.(png|jpg)$/,
+          loader:'url?limit=40000'
+         }
 		]
 	},
 	devServer:{
-		contentBase:__dirname + '/prd',
-		port:80,
-		host:'localhost',
-		proxy:{
-			'/api':{
-				target:'http://localhost:9000',
-				pathRewrite:{
-					'^/api':''
-				}
-			}
-		}
+      contentBase:__dirname+'/prd',
+      port:80,
+      host:'localhost',
+      inline:true,
+      proxy:{
+      	'/api':{
+      		target:'http://localhost:9000',
+      		pathRewrite:{
+      			'^/api':''
+      		}
+      	}
+      }
 	},
 	plugins:[
-		new ET('bundle.css')
+	   // new webpack.optimize.UglifyJsPlugin(),
+      new ET('bundle.css'),
 	]
+
 }

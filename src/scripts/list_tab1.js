@@ -25,7 +25,7 @@ var Tab1 = React.createClass({
 		var reset = this.state.reset;
 		if(reset){
 			for( var i=0;i<reset.length;i++){
-				arr.push(<Tabli name={reset[i]}/>)
+				arr.push(<Tabli name={reset[i]} key={i}/>)
 			}
 		}
 		return(
